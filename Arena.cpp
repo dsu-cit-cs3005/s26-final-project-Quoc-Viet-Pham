@@ -17,6 +17,12 @@
 namespace {
 constexpr std::size_t kMaxRobotSummaryChars = 50;
 
+void clear_terminal()
+{
+    // ANSI escape: clear screen, then move cursor to top-left.
+    std::cout << "\x1B[2J\x1B[H";
+}
+
 std::string trim_copy(const std::string& text)
 {
     const std::size_t start = text.find_first_not_of(" \t\r\n");
@@ -337,6 +343,7 @@ void Arena::place_robots()
 
 void Arena::print_board() const
 {
+    clear_terminal();
     std::cout << "\n===== Round " << m_round << " =====\n\n";
     std::cout << "   ";
     for (int col = 0; col < m_config.width; ++col) {
@@ -364,6 +371,7 @@ void Arena::print_board() const
         }
         std::cout << "\n";
     }
+    std::cout << std::flush;
 }
 
 // Print current game board

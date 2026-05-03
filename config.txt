@@ -1,7 +1,7 @@
 Arena_Size:20 20
 Max_Rounds:250
 Sleep_interval:1
-Game_State_Live:false
+Game_State_Live:true
 Flamethrowers:4
 Pits:4
 Mounds:6
